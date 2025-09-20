@@ -3,503 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferramenta Criativos BR - Dropshipping</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 20px;
-        }
-        
-        h1 {
-            color: #1877f2;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .config-section {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-        }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        label {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #555;
-        }
-        
-        input, select {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        
-        input[type="checkbox"] {
-            width: auto;
-            margin-right: 8px;
-        }
-        
-        .checkbox-group {
-            flex-direction: row;
-            align-items: center;
-        }
-        
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .btn-primary {
-            background-color: #1877f2;
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: #166fe5;
-        }
-        
-        .btn-secondary {
-            background-color: #42b883;
-            color: white;
-            margin-left: 10px;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #369870;
-        }
-        
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            color: #666;
-        }
-        
-        .error {
-            background: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 4px;
-            margin: 15px 0;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .results-section {
-            margin-top: 30px;
-        }
-        
-        .results-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .results-count {
-            font-weight: 600;
-            color: #555;
-        }
-        
-        .table-container {
-            overflow-x: auto;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        
-        th, td {
-            padding: 12px 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-            font-size: 13px;
-        }
-        
-        th {
-            background-color: #f8f9fa;
-            font-weight: 600;
-            color: #555;
-        }
-        
-        tr:hover {
-            background-color: #f8f9fa;
-        }
-        
-        .badge {
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        
-        .badge-dropshipping {
-            background: #d1ecf1;
-            color: #0c5460;
-        }
-        
-        .badge-excluded {
-            background: #f8d7da;
-            color: #721c24;
-        }
-        
-        .score {
-            font-weight: 700;
-            color: #1877f2;
-        }
-        
-        .advertiser {
-            font-weight: 600;
-        }
-        
-        .headline {
-            max-width: 200px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        
-        .url {
-            max-width: 150px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        
-        .btn-link {
-            color: #1877f2;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .btn-link:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .results-header {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            table {
-                font-size: 11px;
-            }
-            
-            th, td {
-                padding: 8px 4px;
-            }
-        }
-    </style>
+    <title>Facebook Ads Dropshipping Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>🇧🇷 Ferramenta Criativos BR - Dropshipping</h1>
-        
-        <div class="config-section">
-            <h3>⚙️ Configuração da API</h3>
-            <div class="form-group">
-                <label for="apiUrl">URL da API (substitua pelo seu backend):</label>
-                <input type="text" id="apiUrl" value="https://criativos-api.onrender.com" placeholder="https://sua-api.onrender.com">
-                <small style="color: #666; margin-top: 5px;">Após fazer deploy do backend, substitua pela URL real da sua API</small>
+        <header>
+            <h1>🎯 Facebook Ads Dropshipping Tool</h1>
+            <p class="subtitle">Encontre criativos de lojas brasileiras de dropshipping na Facebook Ads Library</p>
+        </header>
+
+        <main>
+            <!-- Search Form -->
+            <div class="search-section">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="searchQuery" 
+                        placeholder="Digite sua pesquisa (ex: relógio smartwatch, fone bluetooth...)"
+                        autocomplete="off"
+                    >
+                    <button id="searchBtn" onclick="performSearch()">
+                        <span>🔍</span> Pesquisar
+                    </button>
+                </div>
+
+                <!-- Advanced Filters -->
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="searchDepth">Profundidade:</label>
+                        <select id="searchDepth">
+                            <option value="fast">Rápida (3 scrolls)</option>
+                            <option value="standard" selected>Padrão (7 scrolls)</option>
+                            <option value="deep">Profunda (15 scrolls)</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="minDays">Dias ativos (mín):</label>
+                        <input type="number" id="minDays" value="0" min="0" max="365">
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="minAds">Anúncios ativos (mín):</label>
+                        <input type="number" id="minAds" value="0" min="0" max="100">
+                    </div>
+
+                    <div class="filter-group checkbox">
+                        <input type="checkbox" id="excludeMarketplaces" checked>
+                        <label for="excludeMarketplaces">Excluir marketplaces</label>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <form id="searchForm">
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="query">🔍 Palavra-chave de busca:</label>
-                    <input type="text" id="query" placeholder="Ex: luminaria solar sensor" required>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state hidden">
+                <div class="spinner"></div>
+                <p>Buscando anúncios na Facebook Ads Library...</p>
+                <small>Isso pode levar alguns segundos</small>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorState" class="error-state hidden">
+                <div class="error-icon">⚠️</div>
+                <h3>Erro na busca</h3>
+                <p id="errorMessage"></p>
+                <button onclick="retrySearch()">Tentar novamente</button>
+            </div>
+
+            <!-- CAPTCHA Warning -->
+            <div id="captchaWarning" class="captcha-warning hidden">
+                <div class="warning-icon">🔒</div>
+                <h3>Verificação necessária</h3>
+                <p>O Facebook solicitou uma verificação CAPTCHA. Por favor, aguarde alguns minutos e tente novamente.</p>
+            </div>
+
+            <!-- Results Summary -->
+            <div id="resultsSummary" class="results-summary hidden">
+                <div class="summary-card">
+                    <span class="label">Total encontrado:</span>
+                    <span class="value" id="totalResults">0</span>
                 </div>
-                
-                <div class="form-group">
-                    <label for="depth">📊 Profundidade da busca:</label>
-                    <select id="depth">
-                        <option value="fast">Rápida (1 página)</option>
-                        <option value="standard" selected>Padrão (3 páginas)</option>
-                        <option value="deep">Profunda (5 páginas)</option>
-                    </select>
+                <div class="summary-card">
+                    <span class="label">Após filtros:</span>
+                    <span class="value" id="filteredResults">0</span>
                 </div>
-                
-                <div class="form-group">
-                    <label for="minDays">📅 Dias ativos mínimos:</label>
-                    <input type="number" id="minDays" value="0" min="0">
-                </div>
-                
-                <div class="form-group">
-                    <label for="minActiveAds">📈 Anúncios ativos mínimos:</label>
-                    <input type="number" id="minActiveAds" value="0" min="0">
-                </div>
-                
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="excludeMarketplaces" checked>
-                    <label for="excludeMarketplaces">🚫 Excluir marketplaces</label>
+                <div class="summary-card">
+                    <span class="label">Possível dropshipping:</span>
+                    <span class="value" id="dropshippingCount">0</span>
                 </div>
             </div>
-            
-            <button type="submit" class="btn btn-primary">🔍 Buscar Criativos</button>
-        </form>
-        
-        <div id="loading" class="loading">
-            <p>⏳ Buscando criativos... Isso pode levar alguns minutos.</p>
-        </div>
-        
-        <div id="error" class="error" style="display: none;"></div>
-        
-        <div id="resultsSection" class="results-section" style="display: none;">
-            <div class="results-header">
-                <div class="results-count" id="resultsCount"></div>
-                <button type="button" id="exportBtn" class="btn btn-secondary">📥 Exportar CSV</button>
+
+            <!-- Results Grid -->
+            <div id="resultsGrid" class="results-grid hidden">
+                <!-- Results will be inserted here -->
             </div>
-            
-            <div class="table-container">
-                <table id="resultsTable">
-                    <thead>
-                        <tr>
-                            <th>Score</th>
-                            <th>Anunciante</th>
-                            <th>Dias Ativo</th>
-                            <th># Ativos</th>
-                            <th>Variações</th>
-                            <th>Headline</th>
-                            <th>Landing</th>
-                            <th>Status</th>
-                            <th>Ads Library</th>
-                        </tr>
-                    </thead>
-                    <tbody id="resultsBody">
-                    </tbody>
-                </table>
+
+            <!-- No Results -->
+            <div id="noResults" class="no-results hidden">
+                <div class="no-results-icon">🔍</div>
+                <h3>Nenhum resultado encontrado</h3>
+                <p>Tente ajustar os filtros ou usar termos de busca diferentes.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Desenvolvido para análise de mercado | Use com responsabilidade</p>
+            <p class="api-status">
+                API Status: <span id="apiStatus" class="status-indicator">●</span>
+                <span id="apiUrl"></span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Ad Details Modal -->
+    <div id="adModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent">
+                <!-- Modal content will be inserted here -->
             </div>
         </div>
     </div>
 
-    <script>
-        let currentResults = [];
-        
-        document.getElementById('searchForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const apiUrl = document.getElementById('apiUrl').value;
-            if (!apiUrl) {
-                showError('Por favor, configure a URL da API');
-                return;
-            }
-            
-            const formData = {
-                query: document.getElementById('query').value,
-                depth: document.getElementById('depth').value,
-                exclude_marketplaces: document.getElementById('excludeMarketplaces').checked,
-                min_days: parseInt(document.getElementById('minDays').value),
-                min_active_ads: parseInt(document.getElementById('minActiveAds').value)
-            };
-            
-            showLoading(true);
-            hideError();
-            hideResults();
-            
-            try {
-                const response = await fetch(`${apiUrl}/search`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-                }
-                
-                const data = await response.json();
-                
-                if (data.needs_manual_solve) {
-                    showError(`⚠️ ${data.message || 'CAPTCHA detectado. Execute com headless=false e resolva manualmente.'}`);
-                    return;
-                }
-                
-                currentResults = data;
-                displayResults(data);
-                
-            } catch (error) {
-                console.error('Erro na busca:', error);
-                showError(`❌ Erro na busca: ${error.message}`);
-            } finally {
-                showLoading(false);
-            }
-        });
-        
-        function showLoading(show) {
-            document.getElementById('loading').style.display = show ? 'block' : 'none';
-        }
-        
-        function showError(message) {
-            const errorDiv = document.getElementById('error');
-            errorDiv.textContent = message;
-            errorDiv.style.display = 'block';
-        }
-        
-        function hideError() {
-            document.getElementById('error').style.display = 'none';
-        }
-        
-        function hideResults() {
-            document.getElementById('resultsSection').style.display = 'none';
-        }
-        
-        function displayResults(results) {
-            if (!results || results.length === 0) {
-                showError('Nenhum resultado encontrado. Tente ajustar os filtros.');
-                return;
-            }
-            
-            const resultsCount = document.getElementById('resultsCount');
-            resultsCount.textContent = `${results.length} criativos encontrados`;
-            
-            const tbody = document.getElementById('resultsBody');
-            tbody.innerHTML = '';
-            
-            results.forEach(item => {
-                const ad = item.ad;
-                const row = document.createElement('tr');
-                
-                const statusBadge = getStatusBadge(ad);
-                const headline = ad.headline || ad.text || 'N/A';
-                const landingUrl = ad.landing_url || 'N/A';
-                
-                row.innerHTML = `
-                    <td class="score">${ad.score.toFixed(1)}</td>
-                    <td class="advertiser">${ad.advertiser_name || 'N/A'}</td>
-                    <td>${ad.days_active || 0}</td>
-                    <td>${ad.advertiser_active_ads_est || 0}</td>
-                    <td>${ad.variations_count || 1}</td>
-                    <td class="headline" title="${headline}">${headline}</td>
-                    <td class="url" title="${landingUrl}">
-                        ${landingUrl !== 'N/A' ? `<a href="${landingUrl}" target="_blank" class="btn-link">${landingUrl}</a>` : landingUrl}
-                    </td>
-                    <td>${statusBadge}</td>
-                    <td>
-                        ${ad.ad_library_result_url ? 
-                            `<a href="${ad.ad_library_result_url}" target="_blank" class="btn-link">Ver Anúncio</a>` : 
-                            'N/A'
-                        }
-                    </td>
-                `;
-                
-                tbody.appendChild(row);
-            });
-            
-            document.getElementById('resultsSection').style.display = 'block';
-        }
-        
-        function getStatusBadge(ad) {
-            if (ad.exclusion_reason) {
-                return `<span class="badge badge-excluded">Excluído: ${ad.exclusion_reason}</span>`;
-            }
-            
-            if (ad.is_probable_dropshipping) {
-                return '<span class="badge badge-dropshipping">Provável Dropshipping</span>';
-            }
-            
-            return '<span class="badge">Normal</span>';
-        }
-        
-        document.getElementById('exportBtn').addEventListener('click', function() {
-            if (currentResults.length === 0) {
-                showError('Nenhum resultado para exportar');
-                return;
-            }
-            
-            exportToCSV(currentResults);
-        });
-        
-        function exportToCSV(results) {
-            const headers = [
-                'Score', 'Anunciante', 'Dias Ativo', '# Ativos Est.', 'Variações', 
-                'Headline', 'Texto', 'Tipo Mídia', 'Data Início', 'URL Landing', 
-                'Status Ativo', 'Provável Dropshipping', 'Razão Exclusão', 'URL Ads Library'
-            ];
-            
-            const rows = results.map(item => {
-                const ad = item.ad;
-                return [
-                    ad.score || 0,
-                    ad.advertiser_name || '',
-                    ad.days_active || 0,
-                    ad.advertiser_active_ads_est || 0,
-                    ad.variations_count || 1,
-                    ad.headline || '',
-                    ad.text || '',
-                    ad.media_type || '',
-                    ad.start_date || '',
-                    ad.landing_url || '',
-                    ad.active_status || '',
-                    ad.is_probable_dropshipping ? 'Sim' : 'Não',
-                    ad.exclusion_reason || '',
-                    ad.ad_library_result_url || ''
-                ].map(field => `"${String(field).replace(/"/g, '""')}"`);
-            });
-            
-            const csvContent = [
-                headers.map(h => `"${h}"`).join(','),
-                ...rows.map(row => row.join(','))
-            ].join('\n');
-            
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement('a');
-            const url = URL.createObjectURL(blob);
-            
-            link.setAttribute('href', url);
-            link.setAttribute('download', `criativos_${new Date().toISOString().slice(0,10)}.csv`);
-            link.style.visibility = 'hidden';
-            
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
