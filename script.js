@@ -37,14 +37,62 @@ async function checkAPIStatus() {
     }
 }
 
-// Perform search
+//performSearch atualizada
 async function performSearch() {
     const query = document.getElementById('searchQuery').value.trim();
-    
     if (!query) {
         alert('Por favor, digite um termo de busca');
         return;
     }
+
+    const depth = document.getElementById('searchDepth').value;
+    
+    // Armazena a busca atual para o botão "Tentar novamente"
+    currentSearch = { query, depth };
+
+    // Reseta a interface
+    hideAllStates();
+    showLoadingState();
+
+    try {
+        // Cria o corpo da requisição (body) para o método POST
+        const requestBody = {
+            query: query,
+            depth: depth,
+            filters: null // Os filtros mais complexos não estão nesta versão
+        };
+
+        // Faz a requisição POST para o endpoint correto (/api/search)
+        const response = await fetch(`${API_BASE_URL}/api/search`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestBody),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({ detail: `HTTP error! status: ${response.status}` }));
+            throw new Error(errorData.detail);
+        }
+
+        const data = await response.json();
+
+        // Lida com os resultados
+        if (data.needs_manual_solve) {
+            showCaptchaWarning();
+        } else if (data.ads && data.ads.length > 0) {
+            // A resposta do backend agora está aninhada, precisamos usar data.ads
+            // Vamos passar o objeto de resposta completo para displayResults
+            displayResults(data); 
+        } else {
+            showNoResults();
+        }
+
+    } catch (error) {
+        showError(error.message);
+    }
+}
     
     // Get filter values
     const depth = document.getElementById('searchDepth').value;
