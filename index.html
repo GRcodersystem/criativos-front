@@ -32,11 +32,22 @@
                 <!-- Advanced Filters -->
                 <div class="filters">
                     <div class="filter-group">
-                        <label for="searchDepth">Profundidade:</label>
+                        <label for="searchDepth">Resultados:</label>
                         <select id="searchDepth">
-                            <option value="fast">Rápida (3 scrolls)</option>
-                            <option value="standard" selected>Padrão (7 scrolls)</option>
-                            <option value="deep">Profunda (15 scrolls)</option>
+                            <option value="25">25 anúncios</option>
+                            <option value="50" selected>50 anúncios</option>
+                            <option value="100">100 anúncios</option>
+                            <option value="200">200 anúncios (pode ser lento)</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="countryCode">País:</label>
+                        <select id="countryCode">
+                            <option value="BR" selected>Brasil</option>
+                            <option value="US">Estados Unidos</option>
+                            <option value="PT">Portugal</option>
+                            <option value="ES">Espanha</option>
                         </select>
                     </div>
 
@@ -72,11 +83,11 @@
                 <button onclick="retrySearch()">Tentar novamente</button>
             </div>
 
-            <!-- CAPTCHA Warning -->
-            <div id="captchaWarning" class="captcha-warning hidden">
-                <div class="warning-icon">🔒</div>
-                <h3>Verificação necessária</h3>
-                <p>O Facebook solicitou uma verificação CAPTCHA. Por favor, aguarde alguns minutos e tente novamente.</p>
+            <!-- API Limit Warning -->
+            <div id="apiLimitWarning" class="captcha-warning hidden">
+                <div class="warning-icon">⚠️</div>
+                <h3>Limite de API atingido</h3>
+                <p>Você atingiu o limite de requisições da API. Por favor, aguarde alguns minutos e tente novamente.</p>
             </div>
 
             <!-- Results Summary -->
